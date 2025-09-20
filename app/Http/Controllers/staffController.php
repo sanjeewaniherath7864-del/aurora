@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
+use Illuminate\Http\Client\Response;
 use Illuminate\Http\Request;
 use Illuminate\Session\Store;
 use Illuminate\Support\Facades\Storage;
@@ -44,10 +45,22 @@ class staffController extends Controller
     }
 
 
-    public function deleteProduct(Request $request , Response $response , $id , $productId){
+    public function deleteProduct($id , $productId){
         $deleteProduct = Product::destroy($productId);
+
+
+        if(!$deleteProduct){
+            return response()->json([
+            "status"=>"error",
+            "requestedId"=>$productId,
+            "message"=>"product not deleted",
+            "deletedCount"=>$deleteProduct,
+            ]);
+        }
+
         return response()->json([
             "status" => "successful",
+            "deleted" => $deleteProduct,
         ]);
     }
 

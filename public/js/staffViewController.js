@@ -34,7 +34,10 @@ filter?.addEventListener("change" , ()=>{
 productDeleteBtns?.forEach(product=>{
     const userId = document.querySelector('body').dataset.id;
     product.addEventListener('click' ,()=>{
-        deleteProduct( userId,product.getAttribute('dataset-id')).then(data=>displateDeleteMessage(data)).catch(e=>console.log(e));
+        deleteProduct( userId,product.getAttribute('dataset-id')).then(data=>{
+            displateDeleteMessage(data);
+            window.location.href = window.location.href;
+        }).catch(e=>console.log(e));
     })
 })
 
