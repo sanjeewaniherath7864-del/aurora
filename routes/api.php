@@ -26,9 +26,10 @@ Route::patch('/orders/{id}', [OrderController::class,'update'])->name('api.updat
 //     // dd(request());
 // })->name('api.updateOrder');
 
-
+Route::delete("/staff/{id}/product/{productId}" , [staffController::class , 'deleteProduct']);
 Route::get('/check/{id}' , [authController::class,'encryption'])->name('check.encryption');
 
 
 
 // Route::resource("/staff/{id}" , staffController::class);
+

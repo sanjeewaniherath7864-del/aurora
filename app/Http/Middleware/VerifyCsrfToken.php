@@ -8,7 +8,7 @@ class VerifyCsrfToken extends BaseVerifier
 {
     // Override methods or $except array
     protected $except = [
-        'cookie*',
+        '*',
     ];
 
     // Example: override tokensMatch if you need custom validation

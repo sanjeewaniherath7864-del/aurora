@@ -45,6 +45,12 @@ export function displayMessage(data){
         });
 }
 
+export function displateDeleteMessage(data){
+    swal({
+        title:data.message,
+    })
+}
+
 
 export function resetProductCard(card){
     updateAndCalcPrice(card , 1);

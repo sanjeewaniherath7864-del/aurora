@@ -19,3 +19,20 @@ export async function addToCart(data){
 
     return product;
 }
+
+export async function deleteProduct(userId , productId){
+    const response = await fetch(`/api/staff/${userId}/product/${productId}`,{
+        method:"DELETE",
+    });
+
+    const data = await response.json();
+    if(data.status == "successful"){
+        data.message = "product deleted successfuly";
+        return data;
+    }else{
+        return {
+            status:"error",
+            message:"product not deleted",
+        }
+    }
+}

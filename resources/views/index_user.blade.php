@@ -52,7 +52,7 @@
                 <img src="{{$product->img}}" alt="" class="product__img">
                 
                 <div class="product__details">
-                    <div class="name">Banana</div>
+                    <div class="name">{{$product->name}}</div>
                     <div class="quantity">{{$product->stoke}} {{$product->unit}} available in stoke</div>
                     <div class="{{$product->stoke >=0?"in":"out"}}-stoke">
                     {{$product->stoke >=0?"in":"out"}} stoke

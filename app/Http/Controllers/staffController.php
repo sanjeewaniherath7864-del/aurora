@@ -42,6 +42,16 @@ class staffController extends Controller
 
         return view('staff.products',['products'=>$products , 'user'=>$user , 'sortBy'=>$sortBy ,'select'=>'products']);
     }
+
+
+    public function deleteProduct(Request $request , Response $response , $id , $productId){
+        $deleteProduct = Product::destroy($productId);
+        return response()->json([
+            "status" => "successful",
+        ]);
+    }
+
+
     public function getTransports(Request $request , $id){
         $user = findUser($id);
 

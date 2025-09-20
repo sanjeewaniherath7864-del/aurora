@@ -44,8 +44,8 @@
         <th>price</th>
     </tr>
     @foreach ($products as $product )
-    <tr>
-            <td>{{$product->id}}</td>
+    <tr dataset-id="{{$product->id}}">
+            <td class="product_id">{{$product->id}}</td>
 
             <td><img src="{{$product->img}}" class="table-img"></td>
 
@@ -54,6 +54,7 @@
             <td>{{$product->unit}}</td>
             <td>{{$product->stoke}}</td>
             <td class="util-lkr">{{$product->price}}</td>
+            <td class="delete" dataset-id="{{$product->id}}">delete</td>
         </tr>
     @endforeach
 </table>

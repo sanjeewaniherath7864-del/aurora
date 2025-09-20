@@ -1,8 +1,11 @@
 import redirect from "./controllers/redirect.js";
 import redirectParams from "./controllers/redirectParams.js";
+import { deleteProduct } from "./model/productModel.js";
+import { displateDeleteMessage } from "./view/productCards.js";
 
 const inputSearch = document.querySelector("input[type=search]");
 const filter = document.getElementById("filter");
+const productDeleteBtns = document.querySelectorAll(".delete");
 
 let windowKeyDownEventListner;
 
@@ -27,6 +30,13 @@ filter?.addEventListener("change" , ()=>{
     });    
 });
 
+
+productDeleteBtns?.forEach(product=>{
+    const userId = document.querySelector('body').dataset.id;
+    product.addEventListener('click' ,()=>{
+        deleteProduct( userId,product.getAttribute('dataset-id')).then(data=>displateDeleteMessage(data)).catch(e=>console.log(e));
+    })
+})
 
 // window.addEventListener('load' , (e)=>{
 //     const staffNavButtons = document.querySelectorAll('.staff_nav ul li');
