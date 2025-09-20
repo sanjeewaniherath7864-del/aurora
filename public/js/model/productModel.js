@@ -26,6 +26,8 @@ export async function deleteProduct(userId , productId){
     });
 
     const data = await response.json();
+    console.log(data);
+
     if(data.status == "successful"){
         data.message = "product deleted successfuly";
         return data;
